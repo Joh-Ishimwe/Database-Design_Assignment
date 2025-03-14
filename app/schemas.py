@@ -28,7 +28,6 @@ class LaptopUpdate(BaseModel):
     StorageID: int
 
 
-
 class LaptopNoSQLCreate(BaseModel):
     Company: str
     Product: str

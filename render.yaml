@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: database-design-assignment
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://<username>:<password>@cluster0.lph39.mongodb.net/<dbname>?retryWrites=true&w=majority
+      - key: DATABASE_URL
+        value: postgresql://laptopdb_user:RgRtnEoW5FdENLIAu7ABvzIutmxpacBu@dpg-cv8balbqf0us73b6eg40-a.oregon-postgres.render.com/laptopdb?sslmode=require
