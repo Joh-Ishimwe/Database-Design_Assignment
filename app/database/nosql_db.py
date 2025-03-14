@@ -1,7 +1,7 @@
 import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
-import certifi  # Import certifi for SSL certificates
+import certifi  
 
 # Load environment variables from .env file
 load_dotenv()
@@ -13,9 +13,9 @@ if not MONGO_URL:
 # Configure SSL/TLS
 client = MongoClient(
     MONGO_URL,
-    tls=True,  # Enable TLS/SSL
-    tlsCAFile=certifi.where(),  # Use certifi's CA bundle
-    tlsAllowInvalidCertificates=False  # Disallow invalid certificates
+    tls=True, 
+    tlsCAFile=certifi.where(),  
+    tlsAllowInvalidCertificates=False  
 )
 
 db = client["laptops_db"]

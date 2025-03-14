@@ -4,7 +4,6 @@ from app.schemas import LaptopNoSQLCreate, LaptopNoSQLUpdate
 import logging
 
 # Set up logging
-logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 def create_laptop_nosql(collection: Collection, laptop_data: LaptopNoSQLCreate):
@@ -14,7 +13,7 @@ def create_laptop_nosql(collection: Collection, laptop_data: LaptopNoSQLCreate):
         return {"_id": str(result.inserted_id), **laptop_dict}
     except Exception as e:
         logger.error(f"Error creating laptop: {e}")
-        raise
+        raise Exception("Failed to create laptop")
 
 def get_laptop_nosql(collection: Collection, laptop_id: str):
     try:
@@ -24,7 +23,7 @@ def get_laptop_nosql(collection: Collection, laptop_id: str):
         return laptop
     except Exception as e:
         logger.error(f"Error fetching laptop: {e}")
-        return {"error": "Invalid ObjectId format"}
+        raise Exception("Failed to fetch laptop")
 
 def get_all_laptops_nosql(collection: Collection):
     try:
@@ -34,7 +33,7 @@ def get_all_laptops_nosql(collection: Collection):
         return laptops
     except Exception as e:
         logger.error(f"Error fetching all laptops: {e}")
-        raise
+        raise Exception("Failed to fetch laptops")
 
 def update_laptop_nosql(collection: Collection, laptop_id: str, laptop_data: LaptopNoSQLUpdate):
     try:
@@ -43,7 +42,7 @@ def update_laptop_nosql(collection: Collection, laptop_id: str, laptop_data: Lap
         return result.modified_count > 0
     except Exception as e:
         logger.error(f"Error updating laptop: {e}")
-        raise
+        raise Exception("Failed to update laptop")
 
 def delete_laptop_nosql(collection: Collection, laptop_id: str):
     try:
@@ -51,4 +50,4 @@ def delete_laptop_nosql(collection: Collection, laptop_id: str):
         return result.deleted_count > 0
     except Exception as e:
         logger.error(f"Error deleting laptop: {e}")
-        raise
+        raise Exception("Failed to delete laptop")

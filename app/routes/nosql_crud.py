@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from app.services.nosql_services import (
     create_laptop_nosql,
     get_all_laptops_nosql,
@@ -14,20 +14,46 @@ router = APIRouter()
 
 @router.post("/laptops/")
 def create_laptop(laptop_data: LaptopNoSQLCreate, collection: Collection = Depends(get_nosql_collection)):
-    return create_laptop_nosql(collection, laptop_data)
+    try:
+        result = create_laptop_nosql(collection, laptop_data)
+        return {"message": "Laptop created successfully", "data": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/laptops/")
 def get_laptops(collection: Collection = Depends(get_nosql_collection)):
-    return get_all_laptops_nosql(collection)
+    try:
+        laptops = get_all_laptops_nosql(collection)
+        return {"message": "Laptops retrieved successfully", "data": laptops}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/laptop/{laptop_id}")
 def get_laptop(laptop_id: str, collection: Collection = Depends(get_nosql_collection)):
-    return get_laptop_nosql(collection, laptop_id)
+    try:
+        laptop = get_laptop_nosql(collection, laptop_id)
+        if not laptop:
+            raise HTTPException(status_code=404, detail="Laptop not found")
+        return {"message": "Laptop retrieved successfully", "data": laptop}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.put("/laptop/{laptop_id}")
 def update_laptop(laptop_id: str, laptop_data: LaptopNoSQLUpdate, collection: Collection = Depends(get_nosql_collection)):
-    return update_laptop_nosql(collection, laptop_id, laptop_data)
+    try:
+        updated = update_laptop_nosql(collection, laptop_id, laptop_data)
+        if not updated:
+            raise HTTPException(status_code=404, detail="Laptop not found")
+        return {"message": f"Laptop with ID {laptop_id} updated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.delete("/laptop/{laptop_id}")
 def delete_laptop(laptop_id: str, collection: Collection = Depends(get_nosql_collection)):
-    return delete_laptop_nosql(collection, laptop_id)
+    try:
+        deleted = delete_laptop_nosql(collection, laptop_id)
+        if not deleted:
+            raise HTTPException(status_code=404, detail="Laptop not found")
+        return {"message": f"Laptop with ID {laptop_id} deleted successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
