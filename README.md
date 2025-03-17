@@ -38,7 +38,7 @@ The project is divided into **three main tasks**:
 ## Group Members 
 - Liliane Kayitesi - Task 1
 - Josiane Ishimwe - Task2
-- Ines Kirezi - Task 3
+- Inès IKirezi - Task 3
 
 ## Installation
 Follow these steps to set up the project locally:
