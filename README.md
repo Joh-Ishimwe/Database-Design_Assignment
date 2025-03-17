@@ -3,7 +3,26 @@
 ## Description
 This project demonstrates database design, implementation, and API integration using both SQL (PostgreSQL) and NoSQL (MongoDB) databases. It also includes a classification ML model and a script to fetch data from the database for the laptop dataset to predict whether a laptop is cheap or expensive.
 
+## Dataset Description
+
+For this assignment we used a laptop price dataset that  contains information about 1,276 laptops, including specifications such as brand, screen size, weight, operating system, processor, and storage to classify if a laptop is either cheap or expensive.
+
+## Dataset Used: [Laptop price ](Database-Design_Assignment/laptop_prices.csv)
+
+
+## Columns Overview:
+
+**Company** – Laptop manufacturer (e.g., Apple, Dell, HP).
+**Product** – Model name of the laptop.
+**TypeName** – Category of the laptop (Notebook, Ultrabook, etc.).
+**Inches** – Screen size in inches.
+**Weight** – Laptop weight in kg.
+**OS** – Operating system (Windows, macOS, Linux, etc.).
+**Price_euros** – Price of the laptop in euros (Target variable for regression).
+**Other Features**: Screen resolution, CPU type, GPU type, RAM, and storage details
+
 ## Tasks
+
 The project is divided into **three main tasks**:
 
 # Task 1: Create a Database in SQL and MongoDB
