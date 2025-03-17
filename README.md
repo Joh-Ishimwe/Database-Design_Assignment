@@ -1,38 +1,44 @@
 # Database Design Assignment
 
 ## Description
-This project is a FastAPI-based application that demonstrates database design, implementation, and API integration using both SQL (PostgreSQL) and NoSQL (MongoDB) databases. It includes CRUD operations for managing laptop data and integrates with a hosted database for machine learning predictions.
+This project demonstrates database design, implementation, and API integration using both SQL (PostgreSQL) and NoSQL (MongoDB) databases. It also includes a classification ML model and a script to fetch data from the database for the laptop dataset to predict whether a laptop is cheap or expensive.
 
 ## Tasks
-The project is divided into **3 tasks**:
+The project is divided into **three main tasks**:
 
 ### **Task 1: Create a Database in SQL and MongoDB**
 - Designed and implemented a relational database schema with **PostgreSQL**.
+- Implemented the database using **MongoDB collections**.  
 - Created an **ERD Diagram** to visualize the schema.
-- Implemented the database using **MongoDB collections**.
-- Added a **stored procedure** and **trigger** in the SQL database for data validation and logging.
+  
+  **Hosted Databases:**
+  **MongoDB**:mongodb+srv://kayitesililiane73:ilmjXVwPBIRvY8MN@cluster0.lph39.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+  **PostgreSQL**:postgresql://laptopdb_user:RgRtnEoW5FdENLIAu7ABvzIutmxpacBu@dpg-cv8balbqf0us73b6eg40-a.oregon-postgres.render.com/laptopdb
 
 ### **Task 2: Create API Endpoints for CRUD Operations**
-- Developed **CRUD endpoints** using **FastAPI** for both SQL and NoSQL databases.
+- Developed **CRUD endpoints** using **FastAPI** for both SQL(PostgreSQL) and NoSQL(MongoDB) databases.
 - Implemented **input validation** using Pydantic models.
-- Deployed the API on **Render** with hosted NoSQL database integration.
+- Hosted the API on **Render**.
+#### Deployed API
+**API Documentation:** https://database-design-assignment.onrender.com/docs
 
 ### **Task 3: Create a Script to Fetch Data for Prediction**
-- Wrote a script to fetch the latest data entry using the API.
-- Prepared the data for machine learning predictions.
-- Integrated a pre-trained machine learning model for predictions.
+- Implemented a classification ML model to predict if a laptop is cheap or expensive.
+- Developed a script to fetch the latest data entry from the database using the API.
+- Prepared the data for prediction using the trained model
 
-## Features
-- **SQL Database**: CRUD operations for laptops using PostgreSQL.
-- **NoSQL Database**: CRUD operations for laptops using MongoDB.
-- **API Integration**: RESTful API endpoints for managing data.
-- **Machine Learning**: Script to fetch data and prepare it for predictions.
 
 ## Technologies Used
 - **Backend**: FastAPI
 - **Databases**: PostgreSQL, MongoDB
 - **API Documentation**: Swagger UI
 - **Deployment**: Render
+
+
+## Group Members 
+- Liliane Kayitesi - Task 1
+- Josiane Ishimwe - Task2
+- Ines Kirezi - Task 3
 
 ## Installation
 Follow these steps to set up the project locally:
@@ -41,3 +47,20 @@ Follow these steps to set up the project locally:
    ```bash
    git clone https://github.com/Joh-Ishimwe/Database-Design_Assignment.git
    cd Database-Design_Assignment
+2. **Create a Virtual Environment & Install Dependencies:**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+
+3. **Set Up Environment Variables**(Create a .env file and add credentials for PostgreSQL, MongoDB, and API keys as needed)
+4. **Run the FastAPI Server:**
+   ```bash
+   uvicorn main:app --reload
+5.**Access the API Documentation:**
+    ```bash 
+    Open http://127.0.0.1:8000/docs in your browser.
+
+
+
+   
