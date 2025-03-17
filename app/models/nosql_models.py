@@ -1,5 +1,6 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
+from sqlalchemy import Enum
 
 # Enum for OS (restricts values to valid options)
 class OSEnum(str, Enum):
