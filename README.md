@@ -88,8 +88,14 @@ Instead of duplicating screen details for every laptop, we maintain a laptopScre
 
 ### **Task 2: Create API Endpoints for CRUD Operations**
 - Developed **CRUD endpoints** using **FastAPI** for both SQL(PostgreSQL) and NoSQL(MongoDB) databases.
-- Implemented **input validation** using Pydantic models.
 - Hosted the API on **Render**.
+- Implemented **input validation** using Pydantic models, ensuring:
+   - Correct data types and required fields.
+   - Validation for numerical constraints (e.g., positive values for price, weight).
+   - Restricted categorical fields using enums (e.g., OS types).
+   - Foreign key constraints to maintain data integrity.
+
+
 #### Deployed API
 **API Documentation:** https://database-design-assignment.onrender.com/docs
 
