@@ -10,12 +10,19 @@ For this assignment we used a laptop price dataset that  contains information ab
 ## Columns Overview:
 
 **Company** – Laptop manufacturer (e.g., Apple, Dell, HP).
+
 **Product** – Model name of the laptop.
+
 **TypeName** – Category of the laptop (Notebook, Ultrabook, etc.).
+
 **Inches** – Screen size in inches.
+
 **Weight** – Laptop weight in kg.
+
 **OS** – Operating system (Windows, macOS, Linux, etc.).
-**Price_euros** – Price of the laptop in euros (Target variable for regression).
+
+**Price_euros** – Price of the laptop in euros (Target variable for classfiication).
+
 **Other Features**: Screen resolution, CPU type, GPU type, RAM, and storage details
 
 ## Tasks
