@@ -5,6 +5,7 @@ This project demonstrates database design, implementation, and API integration u
 
 ## Tasks
 The project is divided into **three main tasks**:
+
 # Task 1: Create a Database in SQL and MongoDB
 
 ## PostgreSQL Database
